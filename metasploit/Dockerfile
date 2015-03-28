@@ -3,7 +3,9 @@ FROM ruby:2.1
 # Adds support for db_nmap
 ENV NMAP_VERSION 6.47
 	
-RUN apt-get update && apt-get -y install bison \
+RUN apt-get update && apt-get -y install \
+    --no-install-recommends \
+    bison \
 	libbison-dev \
 	libpcap-dev \
 	libpcap0.8 \
