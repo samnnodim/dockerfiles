@@ -1,8 +1,6 @@
 FROM debian:jessie
 MAINTAINER Paul Liljenberg "liljenberg.paul@gmail.com"
 
-ENV DEBIAN_FRONTEND noninteractive
-
 ENV PASSWORD transmission
 
 RUN apt-get update &&  apt-get install -y \
