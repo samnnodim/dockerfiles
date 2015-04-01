@@ -1,4 +1,4 @@
-FROM debian:6.0.10
+FROM debian:wheezy
 
 RUN apt-get update && apt-get -y install \
     libpcap-dev \
