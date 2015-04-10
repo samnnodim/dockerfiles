@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
         xmlstarlet \
         cabextract
 
-ADD http://download.wsusoffline.net/wsusoffline954.zip /wsusoffline.zip
+ADD http://download.wsusoffline.net/wsusoffline96.zip /wsusoffline.zip
 RUN unzip /wsusoffline.zip \
         && rm /wsusoffline.zip \
         && chmod +x /wsusoffline/sh/DownloadUpdates.sh
