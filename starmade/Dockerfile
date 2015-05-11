@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip
 
 
-ADD http://files.star-made.org/build/starmade-build_20150319_050107.zip /starmade.zip
+ADD http://files.star-made.org/build/starmade-build_20150510_175446.zip /starmade.zip
 RUN mkdir /STARMADE && unzip starmade.zip -d /STARMADE 
 
 
