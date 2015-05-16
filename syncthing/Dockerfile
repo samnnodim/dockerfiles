@@ -6,8 +6,10 @@ RUN mkdir -p src/github.com/syncthing \
     && cd syncthing \
     && go run build.go
 
+env PATH /go/src/github.com/syncthing/syncthing/bin:$PATH
+
 VOLUME ["/Sync"]
 
 EXPOSE 8080 22000
 
-ENTRYPOINT ["/go/src/github.com/syncthing/syncthing/bin/syncthing"]
+ENTRYPOINT ["syncthing"]
