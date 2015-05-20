@@ -15,15 +15,15 @@ RUN apt-get update && apt-get -y install \
 	wget \
 	bzip2
 
-RUN wget http://nmap.org/dist/nmap-${NMAP_VERSION}.tar.bz2 && \
-	bzip2 -cd nmap-${NMAP_VERSION}.tar.bz2 | tar xvf - && \
-	cd nmap-${NMAP_VERSION} && \
-	./configure && \
-	make && \
-	make install && \
-	cd && \
-	rm -rf nmap-${NMAP_VERSION}
-	
+RUN wget http://nmap.org/dist/nmap-${NMAP_VERSION}.tar.bz2 \
+	&& bzip2 -cd nmap-${NMAP_VERSION}.tar.bz2 | tar xvf - \
+	&& cd nmap-${NMAP_VERSION} \
+	&& ./configure \
+	&& make \
+	&& make install \
+	&& rm -rf /nmap-${NMAP_VERSION} \
+    && rm -rf /nmap-${NMAP_VERSION}.tar.bz2
+
 
 RUN git clone --depth=1 https://github.com/rapid7/metasploit-framework.git \
 	&& cd metasploit-framework \
