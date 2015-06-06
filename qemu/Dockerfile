@@ -2,6 +2,8 @@ FROM ubuntu:14.04
 
 ENV VERSION 2.3.0
 
+RUN cat /proc/cpuinfo
+
 RUN apt-get update && apt-get -y install \
 	curl \
 	python \
