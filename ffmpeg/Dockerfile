@@ -1,6 +1,6 @@
 FROM busybox
 
-ENV VERSION 20150607
+ENV VERSION 20150609
 
 RUN wget http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz \
     && xz -d ffmpeg-git-64bit-static.tar.xz \
