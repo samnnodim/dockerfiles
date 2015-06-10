@@ -21,6 +21,8 @@ RUN curl -fL https://www.unbound.net/downloads/unbound-${VERSION}.tar.gz > /unbo
     && rm -rvf /unbound.tar.gz \
     && rm -rvf /unbound-${VERSION}
 
+EXPOSE 53/tcp 53/udp
+
 USER unbound
 CMD ["-h"]
 ENTRYPOINT ["unbound"]
