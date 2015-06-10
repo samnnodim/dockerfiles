@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM debian:jessie
 
 
 ENV VERSION 1.5.3
@@ -22,5 +22,5 @@ RUN curl -fL https://www.unbound.net/downloads/unbound-${VERSION}.tar.gz > /unbo
     && rm -rvf /unbound-${VERSION}
 
 USER unbound
-CMD ["--help"]
+CMD ["-h"]
 ENTRYPOINT ["unbound"]
