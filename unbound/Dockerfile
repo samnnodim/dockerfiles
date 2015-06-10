@@ -8,7 +8,8 @@ RUN apt-get update && apt-get -y install \
     gcc \
     make \
     libexpat1-dev \
-    libssl-dev
+    libssl-dev \
+    libevent-dev
 
 RUN useradd unbound
 
