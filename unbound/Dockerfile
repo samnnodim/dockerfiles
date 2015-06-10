@@ -26,7 +26,7 @@ RUN useradd unbound
 RUN mkdir -p /usr/local/etc/unbound \
     && chown -R unbound:root /usr/local/etc/unbound
 
-EXPOSE 53/tcp 53/udp
+EXPOSE 53 53/udp
 
 USER unbound
 CMD ["-h"]
