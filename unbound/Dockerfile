@@ -11,7 +11,6 @@ RUN apt-get update && apt-get -y install \
     libssl-dev \
     libevent-dev
 
-RUN useradd unbound
 
 RUN curl -fL https://www.unbound.net/downloads/unbound-${VERSION}.tar.gz > /unbound.tar.gz \
     && tar xvf unbound.tar.gz \
@@ -21,6 +20,11 @@ RUN curl -fL https://www.unbound.net/downloads/unbound-${VERSION}.tar.gz > /unbo
     && make install \
     && rm -rvf /unbound.tar.gz \
     && rm -rvf /unbound-${VERSION}
+
+RUN useradd unbound
+
+RUN mkdir -p /usr/local/etc/unbound \
+    && chown -R unbound:root /usr/local/etc/unbound
 
 EXPOSE 53/tcp 53/udp
 
