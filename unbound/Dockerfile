@@ -24,11 +24,12 @@ RUN curl -fL https://www.unbound.net/downloads/unbound-${VERSION}.tar.gz > /unbo
 
 RUN useradd unbound
 
-RUN mkdir -p /usr/local/etc/unbound \
+RUN mkdir -p /usr/local/etc/unbound/conf.d \
     && chown -R unbound:root /usr/local/etc/unbound
 
 RUN curl -fL ftp://FTP.INTERNIC.NET/domain/named.cache > /usr/local/etc/unbound/named.cache
 ADD unbound.conf /usr/local/etc/unbound/
+ADD unbound01.conf /usr/local/etc/unbound/conf.d/
 
 EXPOSE 5353 5353/udp
 
