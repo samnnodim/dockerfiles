@@ -11,7 +11,6 @@ RUN apt-get update && apt-get -y install \
     libssl-dev \
     libevent-dev
 
-
 RUN curl -fL https://www.unbound.net/downloads/unbound-${VERSION}.tar.gz > /unbound.tar.gz \
     && tar xvf unbound.tar.gz \
     && cd unbound-${VERSION} \
@@ -23,16 +22,14 @@ RUN curl -fL https://www.unbound.net/downloads/unbound-${VERSION}.tar.gz > /unbo
 
 
 RUN useradd unbound
-
-RUN mkdir -p /usr/local/etc/unbound/conf.d \
-    && chown -R unbound:root /usr/local/etc/unbound
+RUN mkdir -p /usr/local/etc/unbound/conf.d
 
 RUN curl -fL ftp://FTP.INTERNIC.NET/domain/named.cache > /usr/local/etc/unbound/named.cache
 ADD unbound.conf /usr/local/etc/unbound/
 ADD unbound01.conf /usr/local/etc/unbound/conf.d/
+RUN chown -R unbound:root /usr/local/etc/unbound
 
-EXPOSE 5353 5353/udp
+EXPOSE 53 53/udp
 
-USER unbound
 CMD ["-h"]
 ENTRYPOINT ["unbound"]
