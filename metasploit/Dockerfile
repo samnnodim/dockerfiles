@@ -1,6 +1,6 @@
 FROM ruby:2.1
+MAINTAINER Paul Liljenberg "liljenberg.paul@gmail.com"
 
-# Adds support for db_nmap
 ENV NMAP_VERSION 6.47
 	
 RUN apt-get update && apt-get -y install \
