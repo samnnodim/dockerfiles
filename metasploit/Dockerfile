@@ -13,7 +13,8 @@ RUN apt-get update && apt-get -y install \
 	postgresql-client \
 	build-essential \
 	wget \
-	bzip2
+	bzip2 \
+    rm -rf /var/lib/apt/lists/*
 
 RUN wget http://nmap.org/dist/nmap-${NMAP_VERSION}.tar.bz2 \
 	&& bzip2 -cd nmap-${NMAP_VERSION}.tar.bz2 | tar xvf - \
