@@ -1,16 +1,19 @@
 #!/bin/bash
 MSFUSER=${MSFUSER:-postgres}
 MSFPASS=${MSFPASS:-postgres}
-if [[ ! -z "$DB_PORT_5432_TCP_ADDR" ]]; then
+if [[ ! -z "$DB_PORT_5432_TCP_ADDR" ]]
+then
   # Check if user exists
   USEREXIST="$(psql -h $DB_PORT_5432_TCP_ADDR -p 5432 -U postgres postgres -tAc "SELECT 1 FROM pg_roles WHERE rolname='$MSFUSER'")"
   # If not create it
-  if [[ ! $USEREXIST -eq 1 ]]; then
+  if [[ ! $USEREXIST -eq 1 ]]
+  then
 	 psql -h $DB_PORT_5432_TCP_ADDR -p 5432 -U postgres postgres -c "create role $MSFUSER login password '$MSFPASS'"
   fi
 
   DBEXIST="$(psql -h $DB_PORT_5432_TCP_ADDR -p 5432 -U postgres  postgres -l | grep msf)"
-  if [[ ! $DBEXIST ]]; then
+  if [[ ! $DBEXIST ]]
+  then
 	 psql -h $DB_PORT_5432_TCP_ADDR -p 5432 -U postgres postgres -c "CREATE DATABASE msf OWNER $MSFUSER;"
   fi
 
@@ -32,4 +35,4 @@ else
 	exit 0
 fi
 
-/metasploit-framework/msfconsole
+"$@"
