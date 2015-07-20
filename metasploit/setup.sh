@@ -31,7 +31,7 @@ else
 	echo "	1. Setup a database:"
 	echo "	   docker run -d --name=postgres postgres"
 	echo "	2. Link containers:"
-	echo "	   docker run -it --link postgres:db pandrew/metasploit"
+	echo "	   docker run -it --link postgres:db pandrew/metasploit msfconsole"
 	exit 0
 fi
 
