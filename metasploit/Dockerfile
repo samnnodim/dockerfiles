@@ -1,7 +1,7 @@
 FROM ruby:2.1
 MAINTAINER Paul Liljenberg "liljenberg.paul@gmail.com"
 
-ENV NMAP_VERSION 6.47
+ENV NMAP_VERSION 6.49BETA4
     
 RUN apt-get update && apt-get -y install \
     --no-install-recommends \
@@ -14,6 +14,7 @@ RUN apt-get update && apt-get -y install \
     build-essential \
     wget \
     bzip2 \
+    tmux \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget http://nmap.org/dist/nmap-${NMAP_VERSION}.tar.bz2 \
