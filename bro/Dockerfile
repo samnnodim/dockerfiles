@@ -1,17 +1,21 @@
-FROM debian:squeeze
+FROM debian:8
 
+
+ENV BRO_VERSION 2.4-0
 RUN apt-get update && apt-get -y install \
-    libpcap-dev \
-    libssl-dev \
-    python-dev \
-    zlib1g-dev \
     curl 
 
-RUN curl http://curl.haxx.se/ca/cacert.pem -o /ca-bundle.crt
-RUN curl --cacert /ca-bundle.crt -fL https://www.bro.org/downloads/release/Bro-2.3.2-Linux-x86_64.deb -o /bro.deb
-RUN dpkg -i /bro.deb
+# Install key to verify package
+RUN curl -fL http://download.opensuse.org/repositories/network:bro/Debian_8.0/Release.key \
+    | apt-key add -
+
+# Install repository
+RUN echo 'deb http://download.opensuse.org/repositories/network:/bro/Debian_8.0/ /' >> /etc/apt/sources.list.d/bro.list
+
+# Update cache and install bro
+RUN apt-get update && apt-get -y install bro="${BRO_VERSION}"
 
 ENV PATH=/opt/bro/bin:$PATH
 
-CMD --help
+CMD "--help"
 ENTRYPOINT ["bro"]
