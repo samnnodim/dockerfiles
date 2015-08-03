@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     curl
 
-ENV STARMADE_VERSION 20150621_023107
+ENV STARMADE_VERSION 20150802_160440
 RUN curl -fL http://files.star-made.org/build/starmade-build_${STARMADE_VERSION}.zip  > /starmade.zip
 RUN mkdir /STARMADE && unzip starmade.zip -d /STARMADE 
 
