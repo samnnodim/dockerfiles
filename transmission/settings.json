@@ -45,7 +45,7 @@
   "rpc-enabled": true,
   "rpc-password": "password",
   "rpc-port": 9091,
-  "rpc-username": "root",
+  "rpc-username": "username",
   "rpc-whitelist": "127.0.0.1,*.*.*.*",
   "rpc-whitelist-enabled": true,
   "speed-limit-down": 1500,
