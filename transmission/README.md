@@ -1,6 +1,9 @@
 docker-transmission
 ===================
 
+### Deprecating in favor of jezz/transmission
+It is smaller and uses good default parameters to entrypoint which we can change.
+
 Example running container:
 ```
 docker run -d --name=transmission --net=host pandrew/transmission

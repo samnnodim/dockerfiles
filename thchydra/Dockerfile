@@ -24,7 +24,11 @@ RUN git clone https://github.com/vanhauser-thc/thc-hydra.git \
         && make \
         && make install
 
+# Cleanup
+RUN rm -rvf /thc-hydra
+
 VOLUME /data
 WORKDIR /data
 
+CMD ["-h"]
 ENTRYPOINT ["/usr/local/bin/hydra"]
