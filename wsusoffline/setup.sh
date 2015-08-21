@@ -3,14 +3,18 @@
 SYSTEM=${SYSTEM:-"all-x64"}
 LANGUAGE=${LANGUAGE:-"enu"}
 PARAMS=${PARAMS:-"/msse /dotnet"}
-DOWNLOAD=${DOWNLOAD}
 SLEEP=${SLEEP:-"48h"}
 
+ctrlc()
+{
+    exit 1   # stop the script
+}
 
-if [[ $DOWNLOAD =~ ^[Yy]$ ]]; then
-    while true; do
-        cd /wsusoffline/sh && ./DownloadUpdates.sh "$SYSTEM" "$LANGUAGE" "$PARAMS"
-        echo "Sleeping for $SLEEP before next download."
-        sleep "$SLEEP"
-    done
-fi
+trap 'ctrlc' INT
+
+while true; do
+    cd /wsusoffline/sh && ./DownloadUpdates.sh "$SYSTEM" "$LANGUAGE" "$PARAMS"
+    echo "Sleeping for $SLEEP before next download."
+    sleep "$SLEEP"
+done
+
