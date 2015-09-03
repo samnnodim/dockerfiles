@@ -1,10 +1,10 @@
-FROM ubuntu:14.04
+FROM debian:testing
 
 RUN apt-get -y update && apt-get -y install \
     curl \
     unzip
 
-ENV VERSION=0.9.12.4.1192-9a47d21
+ENV VERSION=0.9.12.11.1406-8403350
 RUN curl -fL https://downloads.plex.tv/plex-media-server/${VERSION}/plexmediaserver_${VERSION}_amd64.deb > plex.deb \
     && dpkg -i plex.deb \
     && rm -v plex.deb
