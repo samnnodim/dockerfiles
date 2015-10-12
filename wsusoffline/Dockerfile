@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
         md5deep \
         wget \
         xmlstarlet \
-        cabextract
+        cabextract \
+        genisoimage
 
 RUN wget -O /wsusoffline.zip http://download.wsusoffline.net/wsusoffline101.zip
 RUN unzip /wsusoffline.zip \
