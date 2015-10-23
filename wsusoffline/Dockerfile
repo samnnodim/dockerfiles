@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
         cabextract \
         genisoimage
 
-RUN wget -O /wsusoffline.zip http://download.wsusoffline.net/wsusoffline101.zip
+RUN wget -O /wsusoffline.zip http://download.wsusoffline.net/wsusoffline102.zip
 RUN unzip /wsusoffline.zip \
         && rm /wsusoffline.zip \
         && chmod +x /wsusoffline/sh/DownloadUpdates.sh
