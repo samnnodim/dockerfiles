@@ -1,6 +1,6 @@
 FROM debian:jessie
 MAINTAINER Paul Liljenberg liljenberg.paul@gmail.com
-ENV VERSION 6.49BETA4
+ENV VERSION 7.00
 RUN apt-get update && apt-get -y install build-essential wget bzip2
 
 RUN wget http://nmap.org/dist/nmap-${VERSION}.tar.bz2 && \
