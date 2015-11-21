@@ -5,7 +5,7 @@ RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' > /et
     && echo 'deb-src http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list.d/ansible.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7BB9C367 
 
-ENV ANSIBLE_VERSION 1.9.2-1ppa~trusty
+ENV ANSIBLE_VERSION 1.9.4-1ppa~trusty
 RUN apt-get update \
     && apt-cache madison ansible \
     && apt-get -y install \
