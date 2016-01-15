@@ -1,6 +1,6 @@
 FROM alpine
 RUN apk update && apk add \
-    openjdk8 \
+    openjdk8-jre \
     unzip \
     curl \
     && rm -rf /var/cache/apk/*
