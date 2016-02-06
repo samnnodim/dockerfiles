@@ -2,7 +2,8 @@ FROM debian:testing
 
 RUN apt-get -y update && apt-get -y install \
     curl \
-    unzip
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV PLEX_VERSION=0.9.15.2.1663-7efd046 
 RUN curl -fL https://downloads.plex.tv/plex-media-server/${PLEX_VERSION}/plexmediaserver_${PLEX_VERSION}_amd64.deb > plex.deb \
