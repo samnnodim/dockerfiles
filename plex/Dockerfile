@@ -5,7 +5,7 @@ RUN apt-get -y update && apt-get -y install \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ENV PLEX_VERSION=0.9.15.2.1663-7efd046 
+ENV PLEX_VERSION=0.9.15.6.1714-7be11e1
 RUN curl -fL https://downloads.plex.tv/plex-media-server/${PLEX_VERSION}/plexmediaserver_${PLEX_VERSION}_amd64.deb > plex.deb \
     && dpkg -i plex.deb \
     && rm -v plex.deb
