@@ -1,23 +1,15 @@
-FROM debian:jessie
+FROM alpine:edge
 MAINTAINER Paul Liljenberg "liljenberg.paul@gmail.com"
 
-ENV TRANSMISSION_VERSION=2.84-0.2
-RUN apt-get update \
-    && apt-cache madison transmission-daemon \
-    && apt-get install -y \
-    transmission-daemon=${TRANSMISSION_VERSION}
-
-
-RUN usermod -a -G debian-transmission root
+ENV	TRANSMISSION_VERSION=2.90-r0
+RUN	apk update && \
+	apk add transmission-daemon=${TRANSMISSION_VERSION}
 
 VOLUME ["/watchdir"]
 VOLUME ["/complete"]
 VOLUME ["/incomplete"]
 
-RUN chgrp debian-transmission /complete /incomplete /watchdir
-RUN chmod 770 /complete /incomplete /watchdir
-
-ADD settings.json /var/lib/transmission-daemon/info/settings.json
+ADD settings.json /root/.config/transmission-daemon/
 ADD setup.sh /
 
 EXPOSE 9091 20683
