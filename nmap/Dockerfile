@@ -1,15 +1,8 @@
-FROM debian:jessie
+FROM alpine
 MAINTAINER Paul Liljenberg liljenberg.paul@gmail.com
-ENV VERSION 7.00
-RUN apt-get update && apt-get -y install build-essential wget bzip2
 
-RUN wget http://nmap.org/dist/nmap-${VERSION}.tar.bz2 && \
-	bzip2 -cd nmap-${VERSION}.tar.bz2 | tar xvf - && \
-	cd nmap-${VERSION} && \
-	./configure && \
-	make && \
-	make install && \
-	cd && \
-	rm -rf nmap-${VERSION}
+ENV	NMAP_VERSION 7.01-r1
+RUN	apk update && \
+	apk add nmap=$NMAP_VERSION
 
 ENTRYPOINT ["nmap"]
