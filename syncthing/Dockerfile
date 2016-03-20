@@ -1,14 +1,9 @@
-FROM golang:1.3
+FROM alpine:edge
 
-RUN mkdir -p src/github.com/syncthing \
-    && cd src/github.com/syncthing \
-    && git clone https://github.com/syncthing/syncthing \
-    && cd syncthing \
-    && go run build.go
+RUN	apk update \
+	&& apk add syncthing
 
-env PATH /go/src/github.com/syncthing/syncthing/bin:$PATH
-
-VOLUME ["/Sync"]
+VOLUME ["/syncthing"]
 
 EXPOSE 8080 22000
 
