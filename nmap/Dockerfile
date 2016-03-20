@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:edge
 MAINTAINER Paul Liljenberg liljenberg.paul@gmail.com
 
 ENV	NMAP_VERSION 7.10-r0
