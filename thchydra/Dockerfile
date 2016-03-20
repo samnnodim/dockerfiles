@@ -1,4 +1,4 @@
-FROM debian:wheezy
+FROM debian:8
 MAINTAINER Paul Liljenberg "liljenberg.paul@gmail.com"
 
 
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get -y install \
     libmysqlclient-dev \
     libpq-dev libsvn-dev \
     firebird2.1-dev \
-    libncp-dev
+    libncap-dev
 
 RUN git clone https://github.com/vanhauser-thc/thc-hydra.git \
         && cd thc-hydra \
