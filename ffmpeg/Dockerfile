@@ -1,11 +1,9 @@
-FROM busybox
+FROM	alpine:edge
 
-ENV VERSION 20150609
+ENV	FFMPEG_VERSION 3.0.1-r0
 
-RUN wget http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz \
-    && xz -d ffmpeg-git-64bit-static.tar.xz \
-    && tar xvf ffmpeg-git-64bit-static.tar \
-    && rm -v ffmpeg-git-64bit-static.tar
+RUN	apk update && \
+	apk add ffmpeg=${FFMPEG_VERSION}
 
-ENV PATH=$PATH:/ffmpeg-git-${VERSION}-64bit-static
-WORKDIR ffmpeg-git-${VERSION}-64bit-static
+ENTRYPOINT ["ffmpeg"]
+CMD "--help"
