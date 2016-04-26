@@ -1,5 +1,5 @@
 FROM python:2.7
-ENV VERSION 0.6.2
+ENV VERSION 1.0
 
 RUN git clone -v  https://github.com/sqlmapproject/sqlmap.git \
 	&& cd sqlmap \	
