@@ -4,7 +4,7 @@ RUN	apk update \
 	&& rm -rf /var/cache/apk/*
 
 
-ENV     SQLMAP_GITTAG=1.0.3
+ENV     SQLMAP_GITTAG=1.0.4
 RUN	git clone -v  https://github.com/sqlmapproject/sqlmap.git \
 		&& cd sqlmap \	
 		&& git checkout tags/${SQLMAP_GITTAG}
