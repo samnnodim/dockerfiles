@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM alpine:edge
 MAINTAINER Paul Andrew Liljenberg "liljenberg.paul@gmail.com"
 
 # Usage:
@@ -9,24 +9,9 @@ MAINTAINER Paul Andrew Liljenberg "liljenberg.paul@gmail.com"
 ADD crackloop /bin/crackloop
 RUN chmod +x /bin/crackloop
 
-RUN apt-get update && apt-get -y install \
-    --no-install-recommends \
-    ca-certificates \
-    gcc \
-    git-core \
-    curl \
-    make \
-    libssl-dev \
-    libnl-genl-3-dev \
-    pkg-config \
-    build-essential
-
-RUN git clone https://github.com/aircrack-ng/aircrack-ng.git && \
-	cd aircrack-ng && \
-	make strip && \
-	make install
+RUN     apk add --no-cache -X http://dl-3.alpinelinux.org/alpine/edge/testing/ aircrack-ng=1.2_rc4-r0
 
 VOLUME /data
 WORKDIR /data
 
-ENTRYPOINT ["/bin/crackloop"]
+CMD ["aircrack-ng"]
