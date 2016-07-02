@@ -1,11 +1,10 @@
-FROM alpine:3.3
+FROM alpine:edge
 
-RUN apk update && apk add \
+RUN apk --no-cache add \
     openjdk8-jre \
-    curl \
-    && rm -rf /var/cache/apk/*
+    curl
 
-ENV MINECRAFT_VERSION 1.8.9
+ENV MINECRAFT_VERSION 1.10.2
 RUN curl -fL https://s3.amazonaws.com/Minecraft.Download/versions/$MINECRAFT_VERSION/minecraft_server.$MINECRAFT_VERSION.jar  > /minecraft.jar
 RUN chmod +x /minecraft.jar
 
