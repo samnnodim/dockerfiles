@@ -1,8 +1,6 @@
-FROM alpine:edge
+FROM	alpine:edge
 
-ENV ANSIBLE_VERSION 2.0.1.0-r1
-RUN apk update && apk add \
-    ansible=${ANSIBLE_VERSION} \
-    && rm -rf /var/cache/apk/*
+ENV	ANSIBLE_VERSION 2.1.0.0-r0
+RUN	apk --no-cache add ansible=${ANSIBLE_VERSION}
 
-ENTRYPOINT ["ansible"]
+ENTRYPOINT	["ansible"]
