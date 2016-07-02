@@ -1,8 +1,5 @@
 FROM	alpine:edge
-RUN	apk update \
-	&& apk add git python \
-	&& rm -rf /var/cache/apk/*
-
+RUN	apk --no-cache add git python
 
 ENV     SQLMAP_GITTAG=1.0.4
 RUN	git clone -v  https://github.com/sqlmapproject/sqlmap.git \
