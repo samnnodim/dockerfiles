@@ -1,6 +1,6 @@
 FROM	alpine:edge
 
-RUN	apk update && apk add \
+RUN	apk --no-cache add \
 		openjdk8-jre \
 		curl
 
