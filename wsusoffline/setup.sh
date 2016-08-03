@@ -13,7 +13,7 @@ ctrlc()
 trap 'ctrlc' INT
 
 while true; do
-    cd /wsusoffline/sh && ./DownloadUpdates.sh "$SYSTEM" "$LANGUAGE" "$PARAMS"
+    /wsusoffline/sh/DownloadUpdates.sh "$SYSTEM" "$LANGUAGE" "$PARAMS"
     echo "Sleeping for $SLEEP before next download."
     sleep "$SLEEP"
 done
