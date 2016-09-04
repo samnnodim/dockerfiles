@@ -1,15 +1,14 @@
-FROM ubuntu:trusty
+FROM	alpine:edge
 
-ENV HANDBRAKE_VERSION 0.10.5-zhb-1ppa1~trusty1
+RUN	echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
 
-RUN echo 'deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu trusty main' > /etc/apt/sources.list.d/handbrake.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 816950D8 \
-    && apt-get update \
-    && apt-cache policy handbrake-cli \
-    && apt-get -y install \
-    handbrake-cli=$HANDBRAKE_VERSION
+ENV	HANDBRAKE_VERSION=0.10.2-r2
+RUN	apk update \
+	&& apk add handbrake=$HANDBRAKE_VERSION \
+	&& rm -rf /var/cache/apk/*
 
-CMD ["-h"]
+
+VOLUME /data
 ENTRYPOINT ["HandBrakeCLI"]
-
+CMD ["-h"]
 
