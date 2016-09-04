@@ -9,7 +9,7 @@ RUN	apt-get update && apt-get -y install \
 		libdumbnet-dev \
 		zlib1g-dev
 
-ENV	DAQ_VERSION 2.0.5
+ENV	DAQ_VERSION 2.0.6
 RUN	wget https://www.snort.org/downloads/snort/daq-${DAQ_VERSION}.tar.gz \
 		&& tar xvfz daq-${DAQ_VERSION}.tar.gz \
 		&& cd daq-${DAQ_VERSION} \
