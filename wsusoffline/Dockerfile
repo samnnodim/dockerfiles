@@ -1,6 +1,7 @@
 FROM debian:jessie
 MAINTAINER Paul Liljenberg <liljenberg.paul@gmail.com>
-ENV WSUSOFFLINE_VERSION 1071
+ENV WSUSOFFLINE_VERSION 1073
+
 RUN apt-get update && apt-get install -y \
         unzip \
         md5deep \
