@@ -9,7 +9,7 @@ RUN	apt-get update && apt-get install -y \
 		cabextract \
 		genisoimage
 
-ENV     WSUSOFFLINE_VERSION 1073
+ENV     WSUSOFFLINE_VERSION 1074
 RUN	wget -O /wsusoffline.zip http://download.wsusoffline.net/wsusoffline"${WSUSOFFLINE_VERSION}".zip
 RUN	unzip /wsusoffline.zip \
 		&& rm /wsusoffline.zip \
